@@ -1,941 +1,131 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Esra Arslan — Portfolio</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap"
-        rel="stylesheet">
-    <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --bg: #0e0e0e;
-            --surface: #161616;
-            --border: #2a2a2a;
-            --accent: #c8a97e;
-            --accent-dim: #8a6f4e;
-            --text: #e8e3dc;
-            --text-muted: #7a7570;
-            --text-dim: #4a4540;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 300;
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.4;
-        }
-
-        /* HEADER */
-        header {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 6rem 4rem 4rem;
-            border-bottom: 1px solid var(--border);
-            overflow: hidden;
-        }
-
-        header::after {
-            content: 'EA';
-            position: absolute;
-            right: -2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-family: 'Playfair Display', serif;
-            font-size: 28vw;
-            color: var(--border);
-            line-height: 1;
-            pointer-events: none;
-            user-select: none;
-            letter-spacing: -0.05em;
-        }
-
-        .header-label {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.2s;
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 7rem);
-            font-weight: 400;
-            line-height: 1.05;
-            letter-spacing: -0.02em;
-            max-width: 700px;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.4s;
-        }
-
-        h1 em {
-            font-style: italic;
-            color: var(--accent);
-        }
-
-        .header-desc {
-            margin-top: 2.5rem;
-            max-width: 480px;
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.8;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.6s;
-        }
-
-        .header-links {
-            margin-top: 3rem;
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.8s;
-        }
-
-        .header-links a {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
-            text-decoration: none;
-            text-transform: uppercase;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 2px;
-            transition: color 0.3s, border-color 0.3s;
-        }
-
-        .header-links a:hover {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
-
-        /* SECTIONS */
-        section {
-            padding: 6rem 4rem;
-            border-bottom: 1px solid var(--border);
-            position: relative;
-        }
-
-        .section-label {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.25em;
-            color: var(--accent-dim);
-            text-transform: uppercase;
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 4vw, 3rem);
-            font-weight: 400;
-            margin-bottom: 3rem;
-            line-height: 1.2;
-        }
-
-        /* ABOUT */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .about-text p {
-            color: var(--text-muted);
-            margin-bottom: 1.2rem;
-            font-size: 1rem;
-        }
-
-        .about-text p strong {
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        .about-tags {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .tag-row {
-            display: flex;
-            align-items: baseline;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .tag-key {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.15em;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            min-width: 90px;
-            flex-shrink: 0;
-        }
-
-        .tag-val {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* EXPERIENCE TIMELINE */
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            border: 1px solid var(--border);
-        }
-
-        .timeline-item {
-            padding: 2.5rem;
-            border-bottom: 1px solid var(--border);
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 2rem;
-            transition: background 0.3s;
-        }
-
-        .timeline-item:last-child {
-            border-bottom: none;
-        }
-
-        .timeline-item:hover {
-            background: var(--surface);
-        }
-
-        .timeline-left {}
-
-        .timeline-company {
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            font-weight: 400;
-            margin-bottom: 0.3rem;
-        }
-
-        .timeline-date {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.6rem;
-            letter-spacing: 0.15em;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            margin-bottom: 0.3rem;
-        }
-
-        .timeline-location {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.6rem;
-            letter-spacing: 0.1em;
-            color: var(--text-dim);
-        }
-
-        .timeline-right {}
-
-        .timeline-role {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.15em;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 0.8rem;
-        }
-
-        .timeline-desc {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-
-        /* WORK GRID */
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5px;
-            background: var(--border);
-            border: 1px solid var(--border);
-        }
-
-        .work-card {
-            background: var(--surface);
-            padding: 2.5rem;
-            position: relative;
-            transition: background 0.3s;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .work-card:hover {
-            background: #1e1e1e;
-        }
-
-        .work-card:hover .card-arrow {
-            transform: translate(4px, -4px);
-            color: var(--accent);
-        }
-
-        .card-type {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.6rem;
-            letter-spacing: 0.2em;
-            color: var(--accent-dim);
-            text-transform: uppercase;
-            margin-bottom: 1.2rem;
-        }
-
-        .card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 0.8rem;
-            line-height: 1.3;
-        }
-
-        .card-desc {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-meta {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.65rem;
-            color: var(--text-dim);
-            letter-spacing: 0.1em;
-        }
-
-        .card-arrow {
-            position: absolute;
-            top: 2.5rem;
-            right: 2.5rem;
-            font-size: 1rem;
-            color: var(--text-dim);
-            transition: transform 0.3s, color 0.3s;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px solid var(--accent-dim);
-            padding-bottom: 2px;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--text);
-        }
-
-        /* VIDEO */
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            background: var(--surface);
-            border: 1px solid var(--border);
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-section-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 5rem;
-        }
-
-        .video-section-grid:last-child {
-            margin-bottom: 0;
-        }
-
-        .video-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-
-        .video-info p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .stat {
-            display: inline-block;
-            font-family: 'DM Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            color: var(--accent);
-            border: 1px solid var(--accent-dim);
-            padding: 0.3rem 0.8rem;
-            margin-right: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        /* CODE */
-        .code-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5px;
-            background: var(--border);
-            border: 1px solid var(--border);
-        }
-
-        .code-card {
-            background: var(--surface);
-            padding: 2.5rem;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            transition: background 0.3s;
-            position: relative;
-        }
-
-        .code-card:hover {
-            background: #1e1e1e;
-        }
-
-        .code-card:hover .card-arrow {
-            transform: translate(4px, -4px);
-            color: var(--accent);
-        }
-
-        .code-lang {
-            width: 8px;
-            height: 8px;
-            background: #3572A5;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 0.5rem;
-            vertical-align: middle;
-        }
-
-        /* WRITING */
-        .writing-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5px;
-            background: var(--border);
-            border: 1px solid var(--border);
-        }
-
-        /* AI SECTION */
-        .ai-block {
-            border: 1px solid var(--border);
-            padding: 3rem;
-            background: var(--surface);
-        }
-
-        .ai-block h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-
-        .ai-block p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .pill-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .pill {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.6rem;
-            letter-spacing: 0.12em;
-            color: var(--text-muted);
-            border: 1px solid var(--border);
-            padding: 0.3rem 0.7rem;
-            text-transform: uppercase;
-        }
-
-        /* FOOTER */
-        footer {
-            padding: 4rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        footer p {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.15em;
-            color: var(--text-dim);
-            text-transform: uppercase;
-        }
-
-        footer a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        footer a:hover {
-            color: var(--accent);
-        }
-
-        /* ANIMATIONS */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(16px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-
-            header,
-            section,
-            footer {
-                padding: 4rem 1.5rem;
-            }
-
-            .about-grid,
-            .video-section-grid,
-            .writing-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline-item {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-            }
-
-            header::after {
-                font-size: 40vw;
-                right: -1rem;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- HEADER -->
-    <header>
-        <p class="header-label">Portfolio — 2026</p>
-        <h1>Esra<br><em>Arslan</em></h1>
-        <p class="header-desc">
-            Linguistics graduate. Content and communications professional.
-            AI and data enthusiast. Based in Malta, working at the intersection of
-            language, data, and digital marketing.
-        </p>
-        <div class="header-links">
-            <a href="https://github.com/esraspages" target="_blank">GitHub →</a>
-            <a href="https://linkedin.com/in/arslanes" target="_blank">LinkedIn →</a>
-            <a href="https://lingdocs.medium.com" target="_blank">Medium →</a>
-            <a href="mailto:arslan_es@icloud.com">Email →</a>
-        </div>
-    </header>
-
-    <!-- ABOUT -->
-    <section>
-        <p class="section-label">/ 01 — About</p>
-        <div class="about-grid reveal">
-            <div class="about-text">
-                <p>
-                    I have a <strong>BA in Linguistics</strong> and an Associate Degree in
-                    <strong>Web Design &amp; Programming</strong>. That combination — language and
-                    technology — is the thread running through everything I do.
-                </p>
-                <p>
-                    My career sits at the intersection of content, data, and language. I've
-                    owned digital channels end-to-end, worked on NLP training data for a
-                    major FAANG AI project, and built computational linguistics tools in Python.
-                    The details are in the sections below.
-                </p>
-                <p>
-                    My broader skill set spans <strong>data analysis, SEO, content strategy,
-                        digital marketing operations, and AI data pipelines</strong> — built across
-                    roles in SaaS, tech, and AI.
-                </p>
-            </div>
-            <div class="about-tags">
-                <div class="tag-row">
-                    <span class="tag-key">Location</span>
-                    <span class="tag-val">Malta</span>
-                </div>
-                <div class="tag-row">
-                    <span class="tag-key">Languages</span>
-                    <span class="tag-val">Turkish (Native) · English (C1) · German (A1)</span>
-                </div>
-                <div class="tag-row">
-                    <span class="tag-key">Tools</span>
-                    <span class="tag-val">Ahrefs · WordPress · Canva · Camtasia · Python · Bash · Excel · SQL</span>
-                </div>
-                <div class="tag-row">
-                    <span class="tag-key">Interests</span>
-                    <span class="tag-val">NLP · Content Strategy · SEO · Language & Data</span>
-                </div>
-                <div class="tag-row">
-                    <span class="tag-key">Education</span>
-                    <span class="tag-val">BA Linguistics, Dokuz Eylul University · Assoc. Web Design & Programming,
-                        Anadolu
-                        University · MBA, Dokuz Eylul University (On Hold — relocated to Malta)</span>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section>
-        <p class="section-label">/ 02 — Experience</p>
-        <h2 class="reveal">Where I've worked<br>and what I built.</h2>
-        <div class="timeline reveal">
-
-
-
-            <div class="timeline-item">
-                <div class="timeline-left">
-                    <p class="timeline-company">Pagos / SpreadsheetWeb</p>
-                    <p class="timeline-date">Aug 2023 — May 2025</p>
-                    <p class="timeline-location">USA · Remote</p>
-                </div>
-                <div class="timeline-right">
-                    <p class="timeline-role">Marketing & Communications Manager → Growth Analyst & Technical Writer</p>
-                    <p class="timeline-desc">
-                        Ran the entire digital presence of SpreadsheetWeb solo for two years.
-                        Managed the YouTube channel, blog, social media, SEO, video production,
-                        no-code app development, and integration testing alongside the engineering team.
-                        Used Ahrefs to track organic performance and adjusted content strategy accordingly.
-                        Built and converted Excel tools into web applications using the SpreadsheetWeb platform.
-                    </p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-left">
-                    <p class="timeline-company">Tamaki</p>
-                    <p class="timeline-date">Apr 2025 — Aug 2025</p>
-                    <p class="timeline-location">Turkey · Hybrid</p>
-                </div>
-                <div class="timeline-right">
-                    <p class="timeline-role">B2B Sales Manager</p>
-                    <p class="timeline-desc">
-                        Conducted international B2B lead generation via cold outreach across
-                        European and Gulf markets — identifying and qualifying prospects in
-                        the restaurant, hospitality, hotel, and retail sectors.
-                        Built the prospect pipeline from scratch with no prior structure.
-                    </p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-left">
-                    <p class="timeline-company">Telus International AI Data Solutions</p>
-                    <p class="timeline-date">Dec 2022 — May 2023</p>
-                    <p class="timeline-location">USA & EU · Remote</p>
-                </div>
-                <div class="timeline-right">
-                    <p class="timeline-role">Subject Matter Expert, Data Linguist</p>
-                    <p class="timeline-desc">
-                        Contributed to an AI chatbot development project for a major FAANG company.
-                        Worked on Abstract Semantic Language (ASL) processing — the structured
-                        representation of meaning used to train conversational AI models.
-                        Applied linguistic theory to classify and annotate datasets, ensuring
-                        semantic accuracy across the AI training data pipeline.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SPREADSHEETWEB WORK -->
-    <section>
-        <p class="section-label">/ 03 — SpreadsheetWeb Content Work</p>
-        <h2 class="reveal">Two years. One product.<br>Every piece of content.</h2>
-        <div class="work-grid reveal">
-
-            <a class="work-card" href="https://www.youtube.com/@spreadsheetweb" target="_blank">
-                <span class="card-arrow">↗</span>
-                <p class="card-type">YouTube Channel</p>
-                <h3 class="card-title">SpreadsheetWeb YouTube</h3>
-                <p class="card-desc">
-                    Grew and managed the official YouTube channel from 2023 to 2025.
-                    Produced all content — scripted, filmed, and edited every tutorial and
-                    product video using Camtasia.
-                </p>
-                <p class="card-meta">2023 – 2025 · Video Production · Camtasia · Scripting</p>
-            </a>
-
-            <a class="work-card" href="https://spreadsheetweb.com/author/earslanpagos-com/" target="_blank">
-                <span class="card-arrow">↗</span>
-                <p class="card-type">Blog & SEO Content</p>
-                <h3 class="card-title">Product Blog & Tutorials</h3>
-                <p class="card-desc">
-                    Wrote product tutorials, how-to guides, use case articles, newsletters,
-                    and promotional copy. Tracked performance using Ahrefs and adjusted
-                    content strategy based on what was working. Managed Google indexing.
-                </p>
-                <p class="card-meta">2023 – 2025 · WordPress · Ahrefs · Copywriting</p>
-            </a>
-
-            <div class="work-card">
-                <p class="card-type">Community Management</p>
-                <h3 class="card-title">LinkedIn, Reddit & Social Media</h3>
-                <p class="card-desc">
-                    Managed the Reddit community, LinkedIn, Twitter, and Facebook accounts —
-                    writing posts, engaging communities, managing content calendars,
-                    and tracking performance across platforms.
-                </p>
-                <p class="card-meta">2023 – 2025 · Reddit · Twitter · Facebook · LinkedIn</p>
-                <div class="social-links">
-                    <a href="https://www.reddit.com/r/spreadsheetweb/" target="_blank">Reddit ↗</a>
-                    <a href="https://www.facebook.com/SpreadsheetWEB" target="_blank">Facebook ↗</a>
-                    <a href="https://x.com/SpreadsheetWEB" target="_blank">X / Twitter ↗</a>
-                </div>
-            </div>
-
-            <a class="work-card" href="https://www.spreadsheetweb.com/" target="_blank">
-                <span class="card-arrow">↗</span>
-                <p class="card-type">No-Code Development</p>
-                <h3 class="card-title">Excel → Web App Builds</h3>
-                <p class="card-desc">
-                    Built Excel-based tools and converted them into web applications using
-                    SpreadsheetWeb's no-code platform. Supported the engineering team with
-                    integration and compatibility testing across various platforms.
-                </p>
-                <p class="card-meta">2023 – 2025 · Excel · No-Code · Testing</p>
-            </a>
-
-        </div>
-    </section>
-
-    <!-- FEATURED VIDEOS -->
-    <section>
-        <p class="section-label">/ 04 — Featured Videos</p>
-        <div class="video-section-grid reveal">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/dPiujkmc558?start=56" title="SpreadsheetWeb Tutorial 1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <div class="video-info">
-                <h3>Explaining a technical platform to a non-technical audience</h3>
-                <p>
-                    One of the tutorial videos I produced and appeared in for SpreadsheetWeb's
-                    official channel. The challenge was making a no-code Excel platform
-                    feel approachable without dumbing it down.
-                </p>
-                <p>
-                    Knowing your audience, choosing the right level of detail, and
-                    delivering it clearly on camera — this is content strategy in practice.
-                </p>
-                <div>
-                    <span class="stat">2.8K VIEWS</span>
-                    <span class="stat">ON-CAMERA PRESENTER</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="video-section-grid reveal">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/3xu9fbl_md8" title="SpreadsheetWeb Tutorial 2"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <div class="video-info">
-                <h3>A second tutorial from the official channel</h3>
-                <p>
-                    Another educational video I produced and presented for SpreadsheetWeb —
-                    demonstrating how to communicate a technical product clearly
-                    and accessibly to a broad audience.
-                </p>
-                <div>
-                    <span class="stat">5.8K VIEWS</span>
-                    <span class="stat">SEO</span>
-                    <span class="stat">PRODUCED 2024</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI & NLP -->
-    <section>
-        <p class="section-label">/ 05 — AI & NLP Work</p>
-        <h2 class="reveal">Language as data.<br><em>Data as language.</em></h2>
-        <div class="reveal">
-            <div class="ai-block">
-                <h3>FAANG AI Chatbot Project — Telus International</h3>
-                <p>
-                    Abstract Semantic Language (ASL) is a formal framework for representing
-                    the meaning of an utterance independently of surface wording — the kind of
-                    structured representation that teaches a model <em>what someone means</em>,
-                    not just what they said. My linguistics background made this a natural fit:
-                    annotating intent, argument structure, and semantic roles at scale.
-                </p>
-                <p>
-                    What the experience confirmed is that data quality is a linguistic problem
-                    as much as an engineering one. Consistency in labelling, edge-case
-                    disambiguation, and knowing when two utterances are semantically equivalent
-                    — these decisions shape what the model learns.
-                </p>
-                <div class="pill-row">
-                    <span class="pill">NLP</span>
-                    <span class="pill">Data Annotation</span>
-                    <span class="pill">ASL Processing</span>
-                    <span class="pill">Semantic Classification</span>
-                    <span class="pill">AI Training Data</span>
-                    <span class="pill">Linguistic Theory</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CODE PROJECTS -->
-    <section>
-        <p class="section-label">/ 06 — Code Projects</p>
-        <h2 class="reveal">Building at the edge of<br><em>language and code.</em></h2>
-        <div class="code-grid reveal">
-            <a class="code-card"
-                href="https://github.com/esraspages/Turkish-Verb-Conjugator-and-Part-of_Speech-Tagging-Tool"
-                target="_blank">
-                <span class="card-arrow">↗</span>
-                <p class="card-type"><span class="code-lang"></span>Python · In Progress</p>
-                <h3 class="card-title">Turkish Verb Conjugator & POS Tagger</h3>
-                <p class="card-desc">
-                    An NLP tool implementing Turkish morphological rules — vowel harmony
-                    and consonant mutation — in Python using object-oriented programming.
-                    Built to understand how linguistic theory translates into code.
-                    Turkish is one of the most morphologically complex languages to model computationally.
-                </p>
-                <p class="card-meta">OOP · Phonetic Rules · Computational Linguistics</p>
-            </a>
-        </div>
-    </section>
-
-    <!-- WRITING -->
-    <section>
-        <p class="section-label">/ 07 — Writing</p>
-        <h2 class="reveal">Writing about language,<br><em>linguistics, and data.</em></h2>
-        <div class="writing-grid reveal">
-
-            <a class="work-card" href="https://lingdocs.medium.com" target="_blank">
-                <span class="card-arrow">↗</span>
-                <p class="card-type">Medium Publication</p>
-                <h3 class="card-title">LingDocs on Medium</h3>
-                <p class="card-desc">
-                    I write about linguistics, language data, and the intersection of
-                    language and technology. The publication explores how linguistic
-                    concepts apply to real-world problems — from NLP to communication strategy.
-                </p>
-                <p class="card-meta">Linguistics · Language & Technology · NLP</p>
-            </a>
-
-
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>Esra Arslan · Malta · 2026</p>
-        <p>
-            <a href="mailto:arslan_es@icloud.com">arslan_es@icloud.com</a>
-            &nbsp;·&nbsp;
-            <a href="https://github.com/esraspages" target="_blank">github.com/esraspages</a>
-            &nbsp;·&nbsp;
-            <a href="https://linkedin.com/in/arslanes" target="_blank">linkedin.com/in/arslanes</a>
-        </p>
-    </footer>
-
-    <script>
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, i) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add('visible'), i * 100);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        reveals.forEach(el => observer.observe(el));
-    </script>
-
-</body>
-
-</html>
+SKIP TO CONTENT
+Esra Arslan
+	•	ABOUT
+	•	EXPERIENCE
+	•	WORK
+	•	AI & NLP
+	•	CODE
+	•	WRITING
+GET IN TOUCH
+EA
+PORTFOLIO — 2026
+Esra Arslan
+CONTENT & COMMUNICATIONS · LANGUAGE & DATA
+Linguistics graduate. Content and communications professional. AI and data enthusiast. Based in Malta, working at the intersection of language, data, and digital marketing.
+GITHUB →
+LINKEDIN →
+MEDIUM →
+EMAIL →
+20 mo
+SOLE OWNER OF SPREADSHEETWEB'S ENTIRE DIGITAL PRESENCE
+8.7K+
+VIEWS ON FEATURED TUTORIAL VIDEOS I WROTE AND PRESENTED
+FAANG
+AI CHATBOT TRAINING DATA PROJECT, AS DATA LINGUIST
+2
+DEGREES — LINGUISTICS AND WEB DESIGN & PROGRAMMING
+/ 01 — ABOUT
+Language and technology, as one discipline.
+I have a BA in Linguistics and an Associate Degree in Web Design & Programming. That combination — language and technology — is the thread running through everything I do.
+My career sits at the intersection of content, data, and language. I've owned digital channels end-to-end, worked on NLP training data for a major FAANG AI project, and built computational linguistics tools in Python. The details are in the sections below.
+My broader skill set spans data analysis, SEO, content strategy, digital marketing operations, and AI data pipelines — built across roles in SaaS, tech, and AI.
+LOCATION
+Malta
+LANGUAGES
+Turkish (Native) · English (C1) · German (A1)
+TOOLS
+Ahrefs · WordPress · Canva · Camtasia · Python · Bash · Excel · SQL
+INTERESTS
+NLP · Content Strategy · SEO · Language & Data
+EDUCATION
+BA Linguistics, Dokuz Eylul University
+Assoc. Web Design & Programming, Anadolu University
+MBA, Dokuz Eylul University — paused after relocating to Malta
+/ 02 — EXPERIENCE
+Where I've worked and what I built.
+Tamaki
+APR 2025 — AUG 2025
+Turkey · Hybrid
+B2B SALES MANAGER
+Conducted international B2B lead generation via cold outreach across European and Gulf markets — identifying and qualifying prospects in the restaurant, hospitality, hotel, and retail sectors. Built the prospect pipeline from scratch with no prior structure.
+Pagos / SpreadsheetWeb
+AUG 2023 — APR 2025
+USA · Remote
+MARKETING & COMMUNICATIONS MANAGER → GROWTH ANALYST & TECHNICAL WRITER
+Ran the entire digital presence of SpreadsheetWeb solo for nearly two years. Managed the YouTube channel, blog, social media, SEO, video production, no-code app development, and integration testing alongside the engineering team. Used Ahrefs to track organic performance and adjusted content strategy accordingly. Built and converted Excel tools into web applications using the SpreadsheetWeb platform.
+Telus International AI Data Solutions
+DEC 2022 — MAY 2023
+USA & EU · Remote
+SUBJECT MATTER EXPERT, DATA LINGUIST
+Contributed to an AI chatbot development project for a major FAANG company. Worked on Abstract Semantic Language (ASL) processing — the structured representation of meaning used to train conversational AI models. Applied linguistic theory to classify and annotate datasets, ensuring semantic accuracy across the AI training data pipeline.
+/ 03 — SPREADSHEETWEB CONTENT WORK
+20 months. One product. Every piece of content.
+↗
+YOUTUBE CHANNEL
+SpreadsheetWeb YouTube
+Grew and managed the official YouTube channel from 2023 to 2025. Produced all content — scripted, filmed, and edited every tutorial and product video using Camtasia.
+2023 – 2025 · Video Production · Camtasia · Scripting
+↗
+BLOG & SEO CONTENT
+Product Blog & Tutorials
+Wrote product tutorials, how-to guides, use case articles, newsletters, and promotional copy. Tracked performance using Ahrefs and adjusted content strategy based on what was working. Managed Google indexing.
+2023 – 2025 · WordPress · Ahrefs · Copywriting
+COMMUNITY MANAGEMENT
+LinkedIn, Reddit & Social Media
+Managed the Reddit community, LinkedIn, Twitter, and Facebook accounts — writing posts, engaging communities, managing content calendars, and tracking performance across platforms.
+2023 – 2025 · Reddit · Twitter · Facebook · LinkedIn
+Reddit ↗
+Facebook ↗
+X / Twitter ↗
+↗
+NO-CODE DEVELOPMENT
+Excel → Web App Builds
+Built Excel-based tools and converted them into web applications using SpreadsheetWeb's no-code platform. Supported the engineering team with integration and compatibility testing across various platforms.
+2023 – 2025 · Excel · No-Code · Testing
+/ 04 — FEATURED VIDEOS
+Explaining technical products to everyone else.
+
+Explaining a technical platform to a non-technical audience
+“How to Build Online Calculators with No Code”
+One of the tutorial videos I produced and appeared in for SpreadsheetWeb's official channel. The challenge was making a no-code Excel platform feel approachable without dumbing it down.
+Knowing your audience, choosing the right level of detail, and delivering it clearly on camera — this is content strategy in practice.
+2.9K Views On-Camera Presenter
+
+Automation, integration, and the API side of the product
+“Integrating Excel Calculations into n8n with SpreadsheetWeb API”
+Another educational video I produced and presented for SpreadsheetWeb — demonstrating how to communicate a technical product clearly and accessibly to a broad audience.
+5.8K Views SEO Produced 2024
+/ 05 — AI & NLP WORK
+Language as data. Data as language.
+FAANG AI Chatbot Project — Telus International
+Abstract Semantic Language (ASL) is a formal framework for representing the meaning of an utterance independently of surface wording — the kind of structured representation that teaches a model what someone means, not just what they said. My linguistics background made this a natural fit: annotating intent, argument structure, and semantic roles at scale.
+What the experience confirmed is that data quality is a linguistic problem as much as an engineering one. Consistency in labelling, edge-case disambiguation, and knowing when two utterances are semantically equivalent — these decisions shape what the model learns.
+NLP
+DATA ANNOTATION
+ASL PROCESSING
+SEMANTIC CLASSIFICATION
+AI TRAINING DATA
+LINGUISTIC THEORY
+/ 06 — CODE PROJECTS
+Building at the edge of language and code.
+↗
+PYTHON · IN PROGRESS
+Turkish Verb Conjugator & POS Tagger
+An NLP tool implementing Turkish morphological rules — vowel harmony and consonant mutation — in Python using object-oriented programming. Built to understand how linguistic theory translates into code. Turkish is one of the most morphologically complex languages to model computationally.
+OOP · Phonetic Rules · Computational Linguistics
+/ 07 — WRITING
+Writing about language, linguistics, and data.
+↗
+MEDIUM PUBLICATION
+LingDocs on Medium
+I write about linguistics, language data, and the intersection of language and technology. The publication explores how linguistic concepts apply to real-world problems — from NLP to communication strategy.
+Linguistics · Language & Technology · NLP
+/ 08 — CONTACT
+Let's talk.
+Open to roles in content, communications, SEO, and AI data — in Malta, remote, or hybrid.
+arslan_es@icloud.com
+LINKEDIN →
+GITHUB →
+MEDIUM →
+ESRA ARSLAN · MALTA · 2026
+ARSLAN_ES@ICLOUD.COM  ·  GITHUB.COM/ESRASPAGES  ·  LINKEDIN.COM/IN/ARSLANES
