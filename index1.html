@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Esra Arslan — Content, Language &amp; Data</title>
+    <meta name="description"
+        content="Esra Arslan — linguistics graduate and content and communications professional based in Malta. Digital marketing, SEO, AI training data, and computational linguistics." />
+    <meta name="author" content="Esra Arslan" />
+    <meta name="theme-color" content="#0d0d0f" />
+    <link rel="canonical" href="https://esraspages.github.io/" />
+
+    <!-- Social sharing (LinkedIn, X, Slack previews) -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Esra Arslan — Content, Language &amp; Data" />
+    <meta property="og:description"
+        content="Linguistics graduate and content professional in Malta. Digital marketing, SEO, AI training data, and computational linguistics." />
+    <meta property="og:url" content="https://esraspages.github.io/" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Esra Arslan — Content, Language &amp; Data" />
+    <meta name="twitter:description"
+        content="Linguistics graduate and content professional in Malta. Digital marketing, SEO, AI training data, and computational linguistics." />
+
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230d0d0f'/%3E%3Ctext x='50' y='69' font-family='Georgia,serif' font-size='50' fill='%23d4b183' text-anchor='middle'%3EEA%3C/text%3E%3C/svg%3E" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <script>
+        /* Marks that JS is available. Reveal animations only apply when this
+           class is present, so the page is fully readable if JS never runs. */
+        document.documentElement.className += ' js';
+    </script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0d0d0f;
+            --surface: #141417;
+            --surface-hover: #1b1b20;
+            --border: #2a2a30;
+            --border-strong: #3b3b44;
+
+            --accent: #d4b183;
+            --accent-dim: #b5946a;
+
+            --text: #eae6e0;
+            --text-muted: #a29c94;
+            --text-dim: #857f76;
+
+            --nav-h: 4.25rem;
+
+            --pad-x: 4rem;
+            --pad-y: 7rem;
+
+            --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --mono: 'DM Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            font-weight: 300;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Film-grain texture. Sits behind everything and ignores clicks. */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        /* Visible keyboard focus everywhere. */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            z-index: 100;
+            background: var(--accent);
+            color: var(--bg);
+            padding: 0.75rem 1.25rem;
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            left: 0;
+        }
+
+        /* ---------- NAV ---------- */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            height: var(--nav-h);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 0 var(--pad-x);
+            background: rgba(13, 13, 15, 0.82);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-brand {
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+            color: var(--text);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-brand span {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.35rem 0;
+            border-bottom: 1px solid transparent;
+            transition: color 0.25s, border-color 0.25s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .nav-cta {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--bg);
+            background: var(--accent);
+            text-decoration: none;
+            padding: 0.55rem 1.1rem;
+            border-radius: 2px;
+            white-space: nowrap;
+            transition: background 0.25s;
+        }
+
+        .nav-cta:hover {
+            background: #e7c79b;
+        }
+
+        /* ---------- HEADER ---------- */
+        header {
+            position: relative;
+            min-height: calc(100svh - var(--nav-h));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5rem var(--pad-x);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        /* The "EA" monogram. It is a decorative background layer: it must never
+           sit above the text, which is what the z-index pairing below enforces. */
+        .header-mark {
+            position: absolute;
+            right: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 0;
+            font-family: var(--serif);
+            font-size: 28vw;
+            font-weight: 600;
+            color: var(--border);
+            line-height: 1;
+            letter-spacing: -0.05em;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .header-inner {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .header-label {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 1.75rem;
+        }
+
+        h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.75rem, 8vw, 7rem);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            max-width: 700px;
+        }
+
+        h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .header-role {
+            margin-top: 1.5rem;
+            font-family: var(--mono);
+            font-size: clamp(0.75rem, 2.2vw, 0.9rem);
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .header-desc {
+            margin-top: 1.75rem;
+            max-width: 480px;
+            color: var(--text-muted);
+            font-size: 1.02rem;
+            line-height: 1.8;
+        }
+
+        .header-links {
+            margin-top: 2.5rem;
+            display: flex;
+            gap: 1.5rem 2rem;
+            flex-wrap: wrap;
+        }
+
+        .header-links a {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-decoration: none;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-strong);
+            padding-bottom: 3px;
+            transition: color 0.3s, border-color 0.3s;
+        }
+
+        .header-links a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Fade-in for the header block, applied only when JS is present. */
+        .js .fade {
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .js .fade-1 { animation-delay: 0.15s; }
+        .js .fade-2 { animation-delay: 0.3s; }
+        .js .fade-3 { animation-delay: 0.45s; }
+        .js .fade-4 { animation-delay: 0.6s; }
+        .js .fade-5 { animation-delay: 0.75s; }
+
+        /* ---------- CREDENTIAL BAND ---------- */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat-cell {
+            padding: 2.5rem var(--pad-x);
+            border-right: 1px solid var(--border);
+        }
+
+        .stat-cell:last-child {
+            border-right: none;
+        }
+
+        .stat-num {
+            font-family: var(--serif);
+            font-size: 2rem;
+            line-height: 1;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+
+        .stat-label {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* ---------- SECTIONS ---------- */
+        section {
+            padding: var(--pad-y) var(--pad-x);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            scroll-margin-top: var(--nav-h);
+        }
+
+        .section-label {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            color: var(--accent-dim);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-family: var(--serif);
+            font-size: clamp(1.75rem, 4vw, 3rem);
+            font-weight: 400;
+            margin-bottom: 3rem;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        /* ---------- ABOUT ---------- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            max-width: 62ch;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-text strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .about-tags {
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid var(--border);
+        }
+
+        .tag-row {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            align-items: baseline;
+            gap: 1rem;
+            padding: 1.1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tag-key {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .tag-val {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        /* ---------- EXPERIENCE ---------- */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+        }
+
+        .timeline-item {
+            padding: 2.5rem;
+            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 2rem;
+            transition: background 0.3s;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-item:hover {
+            background: var(--surface);
+        }
+
+        .timeline-company {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 0.45rem;
+            line-height: 1.3;
+        }
+
+        .timeline-date {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.14em;
+            color: var(--accent-dim);
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-location {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+        }
+
+        .timeline-role {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .timeline-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            max-width: 68ch;
+        }
+
+        /* ---------- CARD GRIDS ---------- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .card {
+            background: var(--surface);
+            padding: 2.5rem;
+            padding-right: 4rem;
+            position: relative;
+            transition: background 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        a.card:hover {
+            background: var(--surface-hover);
+        }
+
+        a.card:hover .card-arrow {
+            transform: translate(4px, -4px);
+            color: var(--accent);
+        }
+
+        .card-type {
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-dim);
+            text-transform: uppercase;
+            margin-bottom: 1.1rem;
+        }
+
+        .card-title {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            max-width: 56ch;
+        }
+
+        .card-meta {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            letter-spacing: 0.1em;
+            line-height: 1.7;
+        }
+
+        .card-arrow {
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 1rem;
+            color: var(--text-dim);
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .code-lang {
+            width: 8px;
+            height: 8px;
+            background: #3572A5;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.25rem;
+            margin-top: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-dim);
+            padding-bottom: 2px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--text);
+        }
+
+        /* ---------- VIDEO ---------- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .video-grid:last-child {
+            margin-bottom: 0;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info h3 {
+            font-family: var(--serif);
+            font-size: 1.45rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        /* The video's real YouTube title, so the claim is checkable. */
+        .video-source {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 1.25rem !important;
+        }
+
+        .video-info p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 1rem;
+            max-width: 54ch;
+        }
+
+        .stat-pill {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            color: var(--accent);
+            border: 1px solid var(--accent-dim);
+            padding: 0.35rem 0.85rem;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ---------- AI BLOCK ---------- */
+        .ai-block {
+            border: 1px solid var(--border);
+            border-left: 2px solid var(--accent-dim);
+            padding: 3rem;
+            background: var(--surface);
+        }
+
+        .ai-block h3 {
+            font-family: var(--serif);
+            font-size: 1.45rem;
+            font-weight: 400;
+            margin-bottom: 1.25rem;
+        }
+
+        .ai-block p {
+            color: var(--text-muted);
+            font-size: 0.94rem;
+            line-height: 1.85;
+            margin-bottom: 1.1rem;
+            max-width: 72ch;
+        }
+
+        .ai-block em {
+            color: var(--text);
+            font-style: italic;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.75rem;
+        }
+
+        .pill {
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            border: 1px solid var(--border-strong);
+            padding: 0.35rem 0.75rem;
+            text-transform: uppercase;
+        }
+
+        /* ---------- CONTACT ---------- */
+        .contact {
+            text-align: center;
+            padding-top: 8rem;
+            padding-bottom: 8rem;
+        }
+
+        .contact h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact p {
+            color: var(--text-muted);
+            max-width: 46ch;
+            margin: 0 auto 2.5rem;
+            font-size: 1rem;
+        }
+
+        .contact-mail {
+            display: inline-block;
+            font-family: var(--serif);
+            font-size: clamp(1.2rem, 3.5vw, 2rem);
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-dim);
+            padding-bottom: 0.35rem;
+            transition: color 0.3s, border-color 0.3s;
+            word-break: break-word;
+        }
+
+        .contact-mail:hover {
+            color: var(--text);
+            border-color: var(--text);
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .contact-row a {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-strong);
+            padding-bottom: 3px;
+            transition: color 0.3s, border-color 0.3s;
+        }
+
+        .contact-row a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            padding: 3rem var(--pad-x);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        footer p {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        /* ---------- ANIMATION ---------- */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hidden only when JS can guarantee it will be revealed again. */
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .js .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+
+            .js .fade,
+            .js .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 1024px) {
+            :root {
+                --pad-x: 2.5rem;
+                --pad-y: 5.5rem;
+            }
+
+            .about-grid,
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 180px 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --pad-x: 1.5rem;
+                --pad-y: 4.5rem;
+                --nav-h: 3.75rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            /* On narrow screens the monogram is moved clear of the text block,
+               shrunk, and dropped in opacity so it reads as texture, not content. */
+            .header-mark {
+                font-size: 38vw;
+                right: -3rem;
+                top: auto;
+                bottom: 4%;
+                transform: none;
+                opacity: 0.5;
+            }
+
+            header {
+                min-height: auto;
+                padding-top: 4.5rem;
+                padding-bottom: 5.5rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+                padding: 2rem 1.5rem;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+                padding-right: 3.25rem;
+            }
+
+            .card-arrow {
+                top: 2rem;
+                right: 1.5rem;
+            }
+
+            .ai-block {
+                padding: 2rem 1.5rem;
+            }
+
+            .stat-cell {
+                padding: 2rem 1.5rem;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .stat-cell:last-child {
+                border-bottom: none;
+            }
+
+            .tag-row {
+                grid-template-columns: 1fr;
+                gap: 0.35rem;
+            }
+
+            .contact {
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            footer p {
+                line-height: 2.1;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .header-mark {
+                opacity: 0.35;
+            }
+        }
+
+        /* ---------- PRINT / SAVE AS PDF ----------
+           This page doubles as a resume, so printing produces a clean,
+           ink-light, single-column document with link targets spelled out. */
+        @media print {
+            :root {
+                --pad-x: 0;
+                --pad-y: 1.5rem;
+            }
+
+            @page {
+                margin: 1.6cm;
+            }
+
+            body {
+                background: #fff;
+                color: #111;
+                font-size: 10.5pt;
+                line-height: 1.5;
+            }
+
+            body::before,
+            .nav,
+            .header-mark,
+            .skip-link,
+            .video-wrapper,
+            .card-arrow,
+            .stats,
+            .contact-row {
+                display: none !important;
+            }
+
+            .js .fade,
+            .js .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+                animation: none !important;
+            }
+
+            header,
+            section,
+            footer {
+                padding: 0 0 1.25rem;
+                border-bottom: none;
+                min-height: auto;
+                page-break-inside: avoid;
+            }
+
+            h1 {
+                font-size: 26pt;
+                color: #111;
+            }
+
+            h1 em,
+            h2 em,
+            .header-label,
+            .section-label,
+            .timeline-role,
+            .timeline-date,
+            .stat-pill,
+            .contact-mail {
+                color: #6b5535 !important;
+            }
+
+            h2 {
+                font-size: 15pt;
+                margin-bottom: 1rem;
+                color: #111;
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 0.3rem;
+            }
+
+            .about-grid,
+            .video-grid,
+            .card-grid {
+                display: block;
+                background: none;
+                border: none;
+            }
+
+            .card,
+            .ai-block,
+            .timeline-item,
+            .about-tags {
+                background: none !important;
+                border: none;
+                border-bottom: 1px solid #ddd;
+                padding: 0.5rem 0;
+            }
+
+            .timeline,
+            .ai-block {
+                border: none;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 0.2rem;
+            }
+
+            .card-desc,
+            .timeline-desc,
+            .about-text p,
+            .tag-val,
+            .ai-block p,
+            .video-info p,
+            .card-meta,
+            .contact p {
+                color: #333 !important;
+            }
+
+            .pill,
+            .tag-key,
+            .timeline-location {
+                color: #555 !important;
+                border-color: #bbb !important;
+            }
+
+            /* Spell out destinations, since a printed link is otherwise dead. */
+            .header-links a::after,
+            .social-links a::after,
+            footer a::after {
+                content: ' (' attr(href) ')';
+                font-size: 8pt;
+                color: #666;
+                word-break: break-all;
+            }
+
+            .header-links a[href^="mailto"]::after,
+            footer a[href^="mailto"]::after {
+                content: '';
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- NAV -->
+    <nav class="nav" aria-label="Primary">
+        <a class="nav-brand" href="#top">Esra <span>Arslan</span></a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#ai">AI &amp; NLP</a></li>
+            <li><a href="#code">Code</a></li>
+            <li><a href="#writing">Writing</a></li>
+        </ul>
+        <a class="nav-cta" href="#contact">Get in touch</a>
+    </nav>
+
+    <main id="main">
+
+        <!-- HEADER -->
+        <header id="top">
+            <div class="header-mark" aria-hidden="true">EA</div>
+            <div class="header-inner">
+                <p class="header-label fade fade-1">Portfolio — 2026</p>
+                <h1 class="fade fade-2">Esra<br><em>Arslan</em></h1>
+                <p class="header-role fade fade-3">Content &amp; Communications · Language &amp; Data</p>
+                <p class="header-desc fade fade-4">
+                    Linguistics graduate. Content and communications professional.
+                    AI and data enthusiast. Based in Malta, working at the intersection of
+                    language, data, and digital marketing.
+                </p>
+                <div class="header-links fade fade-5">
+                    <a href="https://github.com/esraspages" target="_blank" rel="noopener noreferrer">GitHub →</a>
+                    <a href="https://linkedin.com/in/arslanes" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+                    <a href="https://lingdocs.medium.com" target="_blank" rel="noopener noreferrer">Medium →</a>
+                    <a href="mailto:arslan_es@icloud.com">Email →</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- CREDENTIAL BAND -->
+        <div class="stats">
+            <div class="stat-cell">
+                <p class="stat-num">20 mo</p>
+                <p class="stat-label">Sole owner of SpreadsheetWeb's<br>entire digital presence</p>
+            </div>
+            <div class="stat-cell">
+                <p class="stat-num">8.7K+</p>
+                <p class="stat-label">Views on featured tutorial<br>videos I wrote and presented</p>
+            </div>
+            <div class="stat-cell">
+                <p class="stat-num">FAANG</p>
+                <p class="stat-label">AI chatbot training data<br>project, as data linguist</p>
+            </div>
+            <div class="stat-cell">
+                <p class="stat-num">2</p>
+                <p class="stat-label">Degrees — linguistics and<br>web design &amp; programming</p>
+            </div>
+        </div>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <p class="section-label">/ 01 — About</p>
+            <h2 class="reveal">Language and technology,<br><em>as one discipline.</em></h2>
+            <div class="about-grid reveal">
+                <div class="about-text">
+                    <p>
+                        I have a <strong>BA in Linguistics</strong> and an Associate Degree in
+                        <strong>Web Design &amp; Programming</strong>. That combination — language and
+                        technology — is the thread running through everything I do.
+                    </p>
+                    <p>
+                        My career sits at the intersection of content, data, and language. I've
+                        owned digital channels end-to-end, worked on NLP training data for a
+                        major FAANG AI project, and built computational linguistics tools in Python.
+                        The details are in the sections below.
+                    </p>
+                    <p>
+                        My broader skill set spans <strong>data analysis, SEO, content strategy,
+                            digital marketing operations, and AI data pipelines</strong> — built across
+                        roles in SaaS, tech, and AI.
+                    </p>
+                </div>
+                <div class="about-tags">
+                    <div class="tag-row">
+                        <span class="tag-key">Location</span>
+                        <span class="tag-val">Malta</span>
+                    </div>
+                    <div class="tag-row">
+                        <span class="tag-key">Languages</span>
+                        <span class="tag-val">Turkish (Native) · English (C1) · German (A1)</span>
+                    </div>
+                    <div class="tag-row">
+                        <span class="tag-key">Tools</span>
+                        <span class="tag-val">Ahrefs · WordPress · Canva · Camtasia · Python · Bash · Excel · SQL</span>
+                    </div>
+                    <div class="tag-row">
+                        <span class="tag-key">Interests</span>
+                        <span class="tag-val">NLP · Content Strategy · SEO · Language &amp; Data</span>
+                    </div>
+                    <div class="tag-row">
+                        <span class="tag-key">Education</span>
+                        <span class="tag-val">
+                            BA Linguistics, Dokuz Eylul University<br>
+                            Assoc. Web Design &amp; Programming, Anadolu University<br>
+                            MBA, Dokuz Eylul University — paused after relocating to Malta
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience">
+            <p class="section-label">/ 02 — Experience</p>
+            <h2 class="reveal">Where I've worked<br>and what I built.</h2>
+            <div class="timeline reveal">
+
+                <article class="timeline-item">
+                    <div class="timeline-left">
+                        <h3 class="timeline-company">Tamaki</h3>
+                        <p class="timeline-date">Apr 2025 — Aug 2025</p>
+                        <p class="timeline-location">Turkey · Hybrid</p>
+                    </div>
+                    <div class="timeline-right">
+                        <p class="timeline-role">B2B Sales Manager</p>
+                        <p class="timeline-desc">
+                            Conducted international B2B lead generation via cold outreach across
+                            European and Gulf markets — identifying and qualifying prospects in
+                            the restaurant, hospitality, hotel, and retail sectors.
+                            Built the prospect pipeline from scratch with no prior structure.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="timeline-left">
+                        <h3 class="timeline-company">Pagos / SpreadsheetWeb</h3>
+                        <p class="timeline-date">Aug 2023 — Apr 2025</p>
+                        <p class="timeline-location">USA · Remote</p>
+                    </div>
+                    <div class="timeline-right">
+                        <p class="timeline-role">Marketing &amp; Communications Manager → Growth Analyst &amp; Technical
+                            Writer</p>
+                        <p class="timeline-desc">
+                            Ran the entire digital presence of SpreadsheetWeb solo for nearly two years.
+                            Managed the YouTube channel, blog, social media, SEO, video production,
+                            no-code app development, and integration testing alongside the engineering team.
+                            Used Ahrefs to track organic performance and adjusted content strategy accordingly.
+                            Built and converted Excel tools into web applications using the SpreadsheetWeb platform.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="timeline-left">
+                        <h3 class="timeline-company">Telus International AI Data Solutions</h3>
+                        <p class="timeline-date">Dec 2022 — May 2023</p>
+                        <p class="timeline-location">USA &amp; EU · Remote</p>
+                    </div>
+                    <div class="timeline-right">
+                        <p class="timeline-role">Subject Matter Expert, Data Linguist</p>
+                        <p class="timeline-desc">
+                            Contributed to an AI chatbot development project for a major FAANG company.
+                            Worked on Abstract Semantic Language (ASL) processing — the structured
+                            representation of meaning used to train conversational AI models.
+                            Applied linguistic theory to classify and annotate datasets, ensuring
+                            semantic accuracy across the AI training data pipeline.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SPREADSHEETWEB WORK -->
+        <section id="work">
+            <p class="section-label">/ 03 — SpreadsheetWeb Content Work</p>
+            <h2 class="reveal">20 months. One product.<br>Every piece of content.</h2>
+            <div class="card-grid reveal">
+
+                <a class="card" href="https://www.youtube.com/@spreadsheetweb" target="_blank"
+                    rel="noopener noreferrer">
+                    <span class="card-arrow" aria-hidden="true">↗</span>
+                    <p class="card-type">YouTube Channel</p>
+                    <h3 class="card-title">SpreadsheetWeb YouTube</h3>
+                    <p class="card-desc">
+                        Grew and managed the official YouTube channel from 2023 to 2025.
+                        Produced all content — scripted, filmed, and edited every tutorial and
+                        product video using Camtasia.
+                    </p>
+                    <p class="card-meta">2023 – 2025 · Video Production · Camtasia · Scripting</p>
+                </a>
+
+                <a class="card" href="https://spreadsheetweb.com/author/earslanpagos-com/" target="_blank"
+                    rel="noopener noreferrer">
+                    <span class="card-arrow" aria-hidden="true">↗</span>
+                    <p class="card-type">Blog &amp; SEO Content</p>
+                    <h3 class="card-title">Product Blog &amp; Tutorials</h3>
+                    <p class="card-desc">
+                        Wrote product tutorials, how-to guides, use case articles, newsletters,
+                        and promotional copy. Tracked performance using Ahrefs and adjusted
+                        content strategy based on what was working. Managed Google indexing.
+                    </p>
+                    <p class="card-meta">2023 – 2025 · WordPress · Ahrefs · Copywriting</p>
+                </a>
+
+                <div class="card">
+                    <p class="card-type">Community Management</p>
+                    <h3 class="card-title">LinkedIn, Reddit &amp; Social Media</h3>
+                    <p class="card-desc">
+                        Managed the Reddit community, LinkedIn, Twitter, and Facebook accounts —
+                        writing posts, engaging communities, managing content calendars,
+                        and tracking performance across platforms.
+                    </p>
+                    <p class="card-meta">2023 – 2025 · Reddit · Twitter · Facebook · LinkedIn</p>
+                    <div class="social-links">
+                        <a href="https://www.reddit.com/r/spreadsheetweb/" target="_blank"
+                            rel="noopener noreferrer">Reddit ↗</a>
+                        <a href="https://www.facebook.com/SpreadsheetWEB" target="_blank"
+                            rel="noopener noreferrer">Facebook ↗</a>
+                        <a href="https://x.com/SpreadsheetWEB" target="_blank" rel="noopener noreferrer">X / Twitter
+                            ↗</a>
+                    </div>
+                </div>
+
+                <a class="card" href="https://www.spreadsheetweb.com/" target="_blank" rel="noopener noreferrer">
+                    <span class="card-arrow" aria-hidden="true">↗</span>
+                    <p class="card-type">No-Code Development</p>
+                    <h3 class="card-title">Excel → Web App Builds</h3>
+                    <p class="card-desc">
+                        Built Excel-based tools and converted them into web applications using
+                        SpreadsheetWeb's no-code platform. Supported the engineering team with
+                        integration and compatibility testing across various platforms.
+                    </p>
+                    <p class="card-meta">2023 – 2025 · Excel · No-Code · Testing</p>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- FEATURED VIDEOS -->
+        <section id="videos">
+            <p class="section-label">/ 04 — Featured Videos</p>
+            <h2 class="reveal">Explaining technical products<br><em>to everyone else.</em></h2>
+
+            <div class="video-grid reveal">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube-nocookie.com/embed/dPiujkmc558?start=56"
+                        title="SpreadsheetWeb tutorial video presented by Esra Arslan" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Explaining a technical platform to a non-technical audience</h3>
+                    <p class="video-source">&ldquo;How to Build Online Calculators with No Code&rdquo;</p>
+                    <p>
+                        One of the tutorial videos I produced and appeared in for SpreadsheetWeb's
+                        official channel. The challenge was making a no-code Excel platform
+                        feel approachable without dumbing it down.
+                    </p>
+                    <p>
+                        Knowing your audience, choosing the right level of detail, and
+                        delivering it clearly on camera — this is content strategy in practice.
+                    </p>
+                    <div>
+                        <span class="stat-pill">2.9K Views</span>
+                        <span class="stat-pill">On-Camera Presenter</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-grid reveal">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube-nocookie.com/embed/3xu9fbl_md8"
+                        title="Second SpreadsheetWeb tutorial video presented by Esra Arslan" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Automation, integration, and the API side of the product</h3>
+                    <p class="video-source">&ldquo;Integrating Excel Calculations into n8n with SpreadsheetWeb API&rdquo;</p>
+                    <p>
+                        Another educational video I produced and presented for SpreadsheetWeb —
+                        demonstrating how to communicate a technical product clearly
+                        and accessibly to a broad audience.
+                    </p>
+                    <div>
+                        <span class="stat-pill">5.8K Views</span>
+                        <span class="stat-pill">SEO</span>
+                        <span class="stat-pill">Produced 2024</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI & NLP -->
+        <section id="ai">
+            <p class="section-label">/ 05 — AI &amp; NLP Work</p>
+            <h2 class="reveal">Language as data.<br><em>Data as language.</em></h2>
+            <div class="reveal">
+                <div class="ai-block">
+                    <h3>FAANG AI Chatbot Project — Telus International</h3>
+                    <p>
+                        Abstract Semantic Language (ASL) is a formal framework for representing
+                        the meaning of an utterance independently of surface wording — the kind of
+                        structured representation that teaches a model <em>what someone means</em>,
+                        not just what they said. My linguistics background made this a natural fit:
+                        annotating intent, argument structure, and semantic roles at scale.
+                    </p>
+                    <p>
+                        What the experience confirmed is that data quality is a linguistic problem
+                        as much as an engineering one. Consistency in labelling, edge-case
+                        disambiguation, and knowing when two utterances are semantically equivalent
+                        — these decisions shape what the model learns.
+                    </p>
+                    <div class="pill-row">
+                        <span class="pill">NLP</span>
+                        <span class="pill">Data Annotation</span>
+                        <span class="pill">ASL Processing</span>
+                        <span class="pill">Semantic Classification</span>
+                        <span class="pill">AI Training Data</span>
+                        <span class="pill">Linguistic Theory</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CODE PROJECTS -->
+        <section id="code">
+            <p class="section-label">/ 06 — Code Projects</p>
+            <h2 class="reveal">Building at the edge of<br><em>language and code.</em></h2>
+            <div class="card-grid reveal">
+                <a class="card"
+                    href="https://github.com/esraspages/Turkish-Verb-Conjugator-and-Part-of_Speech-Tagging-Tool"
+                    target="_blank" rel="noopener noreferrer">
+                    <span class="card-arrow" aria-hidden="true">↗</span>
+                    <p class="card-type"><span class="code-lang"></span>Python · In Progress</p>
+                    <h3 class="card-title">Turkish Verb Conjugator &amp; POS Tagger</h3>
+                    <p class="card-desc">
+                        An NLP tool implementing Turkish morphological rules — vowel harmony
+                        and consonant mutation — in Python using object-oriented programming.
+                        Built to understand how linguistic theory translates into code.
+                        Turkish is one of the most morphologically complex languages to model
+                        computationally.
+                    </p>
+                    <p class="card-meta">OOP · Phonetic Rules · Computational Linguistics</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- WRITING -->
+        <section id="writing">
+            <p class="section-label">/ 07 — Writing</p>
+            <h2 class="reveal">Writing about language,<br><em>linguistics, and data.</em></h2>
+            <div class="card-grid reveal">
+                <a class="card" href="https://lingdocs.medium.com" target="_blank" rel="noopener noreferrer">
+                    <span class="card-arrow" aria-hidden="true">↗</span>
+                    <p class="card-type">Medium Publication</p>
+                    <h3 class="card-title">LingDocs on Medium</h3>
+                    <p class="card-desc">
+                        I write about linguistics, language data, and the intersection of
+                        language and technology. The publication explores how linguistic
+                        concepts apply to real-world problems — from NLP to communication strategy.
+                    </p>
+                    <p class="card-meta">Linguistics · Language &amp; Technology · NLP</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="contact">
+            <p class="section-label">/ 08 — Contact</p>
+            <h2 class="reveal">Let's talk.</h2>
+            <p class="reveal">
+                Open to roles in content, communications, SEO, and AI data —
+                in Malta, remote, or hybrid.
+            </p>
+            <div class="reveal">
+                <a class="contact-mail" href="mailto:arslan_es@icloud.com">arslan_es@icloud.com</a>
+            </div>
+            <div class="contact-row reveal">
+                <a href="https://linkedin.com/in/arslanes" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+                <a href="https://github.com/esraspages" target="_blank" rel="noopener noreferrer">GitHub →</a>
+                <a href="https://lingdocs.medium.com" target="_blank" rel="noopener noreferrer">Medium →</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Esra Arslan · Malta · 2026</p>
+        <p>
+            <a href="mailto:arslan_es@icloud.com">arslan_es@icloud.com</a>
+            &nbsp;·&nbsp;
+            <a href="https://github.com/esraspages" target="_blank" rel="noopener noreferrer">github.com/esraspages</a>
+            &nbsp;·&nbsp;
+            <a href="https://linkedin.com/in/arslanes" target="_blank"
+                rel="noopener noreferrer">linkedin.com/in/arslanes</a>
+        </p>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Esra Arslan",
+      "url": "https://esraspages.github.io/",
+      "jobTitle": "Content & Communications Professional",
+      "email": "mailto:arslan_es@icloud.com",
+      "address": { "@type": "PostalAddress", "addressCountry": "MT" },
+      "knowsLanguage": ["Turkish", "English", "German"],
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Dokuz Eylul University" },
+        { "@type": "CollegeOrUniversity", "name": "Anadolu University" }
+      ],
+      "sameAs": [
+        "https://github.com/esraspages",
+        "https://linkedin.com/in/arslanes",
+        "https://lingdocs.medium.com"
+      ]
+    }
+    </script>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var reveals = document.querySelectorAll('.reveal');
+
+            // Reveal-on-scroll. If IntersectionObserver is unavailable or motion is
+            // reduced, everything is shown immediately rather than left hidden.
+            if (reduceMotion || !('IntersectionObserver' in window)) {
+                reveals.forEach(function (el) { el.classList.add('visible'); });
+            } else {
+                var revealObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) return;
+                        entry.target.classList.add('visible');
+                        revealObserver.unobserve(entry.target);
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+                reveals.forEach(function (el) { revealObserver.observe(el); });
+            }
+
+            // Highlight the nav link for whichever section is currently in view.
+            var navLinks = Array.prototype.slice.call(
+                document.querySelectorAll('.nav-links a[href^="#"]')
+            );
+            var sections = navLinks
+                .map(function (link) { return document.querySelector(link.getAttribute('href')); })
+                .filter(Boolean);
+
+            if (sections.length && 'IntersectionObserver' in window) {
+                var setActive = function (id) {
+                    navLinks.forEach(function (link) {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                    });
+                };
+
+                var spy = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) setActive(entry.target.id);
+                    });
+                }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+                sections.forEach(function (section) { spy.observe(section); });
+            }
+        })();
+    </script>
+
+</body>
+
+</html>
